@@ -1,9 +1,10 @@
 package org.cdi.sandbox.module;
 
 
+import jakarta.interceptor.InterceptorBinding;
 import java.lang.annotation.Retention;
 
-import javax.interceptor.InterceptorBinding;
+
 
 import static java.lang.annotation.RetentionPolicy.RUNTIME;
 

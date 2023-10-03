@@ -1,6 +1,7 @@
 package org.cdi.sandbox.module;
 
-import javax.enterprise.inject.se.SeContainerInitializer;
+
+import jakarta.enterprise.inject.se.SeContainerInitializer;
 
 public class MyApplication {
 

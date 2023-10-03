@@ -11,76 +11,9 @@ To build this project you'll need:
 * JDK 11 or higher
 * Maven 3.3.9 or higher
 
-Unfortunately, even if moditect does a great job, some libraries don't play well with jpms.
-That's why the build need 2 dirty tricks in your local maven repo in order to work.
-
-You may want to backup your local repo before doing nasty stuff in it.
-
-=== First trick
-
-Start with a classical:
-
-`mvn clean package`
-
-Build will fail on the following error:
-
-`Provider class moduleName=groovy-all not in module`
-
-to solve this you have to open the following jar (with a zip browser) in your repo:
-
-`$MAVEN_REPO/org/codehaus/groovy/groovy-all/2.4.15/groovy-all-2.4.15.jar`
-
-and remove the following 2 files in it:
-
-`META-INF/services/org.codehaus.groovy.source.Extensions`
-
-and
-
-`META-INF/services/org.codehaus.groovy.runtime.ExtensionModule`
-
-
-=== Second trick
-
-Next build attempt:
-
-`mvn clean package`
-
-Will give you another error:
-
-`Execution add-module-info-to-dependencies of goal org.moditect:moditect-maven-plugin:1.0.0.Beta1:add-module-info failed: Couldn't parse /Users/antoine/dev/cdi-module/target/moditect/weld.core.impl/module-info.java`
-
-To correct this one you'll have to edit the following file:
-
-`$MAVEN_REPO/com/github/spotbugs/spotbugs-annotations/3.1.1/spotbugs-annotations-3.1.1.pom`
-
-and delete this section at the end of the file:
-
-[source,xml]
-----
-  <dependencies>
-    <dependency>
-      <groupId>com.google.code.findbugs</groupId>
-      <artifactId>jsr305</artifactId>
-      <version>3.0.2</version>
-      <scope>compile</scope>
-    </dependency>
-  </dependencies>
-----
-
-File is now ending with
-
-[source,xml]
-----
-  </scm>
-</project>
-----
-
-Save file.
-Now you're good to go.
-
 === Running
 
-Your last build should work:
+Your can launch the build of the project and image with:
 
 `mvn clean package`
 
@@ -94,7 +27,6 @@ Enjoy!
 
 == Next steps
 
-* contribute to moditect to avoid these dirty hacks in local repo
 * try to add JAX-RS/RestEasy tot the party...
 * ...
 

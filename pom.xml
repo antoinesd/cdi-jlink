@@ -19,21 +19,6 @@
       <version>${weld.version}</version>
     </dependency>
     <dependency>
-      <groupId>org.jboss.slf4j</groupId>
-      <artifactId>slf4j-jboss-logging</artifactId>
-      <version>1.2.1.Final</version>
-    </dependency>
-    <dependency>
-      <groupId>org.slf4j</groupId>
-      <artifactId>slf4j-simple</artifactId>
-      <version>2.0.9</version>
-    </dependency>
-    <dependency>
-      <groupId>org.slf4j</groupId>
-      <artifactId>slf4j-api</artifactId>
-      <version>2.0.9</version>
-    </dependency>
-    <dependency>
       <groupId>org.jboss.logging</groupId>
       <artifactId>jboss-logging</artifactId>
       <version>3.5.3.Final</version>
@@ -70,7 +55,7 @@
             <configuration>
               <outputDirectory>${project.build.directory}/modules</outputDirectory>
               <excludeArtifactIds>jboss-logging-annotations</excludeArtifactIds>
-              <includeGroupIds>jakarta.annotation,jakarta.el,jakarta.enterprise,jakarta.inject,jakarta.interceptor,org.jboss.logging,org.slf4j</includeGroupIds>
+              <includeGroupIds>jakarta.annotation,jakarta.el,jakarta.enterprise,jakarta.inject,jakarta.interceptor,org.jboss.logging</includeGroupIds>
               <overWriteIfNewer>true</overWriteIfNewer>
             </configuration>
           </execution>
@@ -248,17 +233,17 @@
                     <dependency>
                       <groupId>org.jboss.weld</groupId>
                       <artifactId>weld-core-impl</artifactId>
-                      <version>5.1.0.Final</version>
+                      <version>${weld.version}</version>
                     </dependency>
                     <dependency>
                       <groupId>org.jboss.weld.environment</groupId>
                       <artifactId>weld-environment-common</artifactId>
-                      <version>5.1.0.Final</version>
+                      <version>${weld.version}</version>
                     </dependency>
                     <dependency>
                       <groupId>org.jboss.weld</groupId>
                       <artifactId>weld-lite-extension-translator</artifactId>
-                      <version>5.1.0.Final</version>
+                      <version>${weld.version}</version>
                     </dependency>
                     <dependency>
                       <groupId>org.jboss.logging</groupId>
@@ -332,17 +317,17 @@
                     <dependency>
                       <groupId>org.jboss.weld</groupId>
                       <artifactId>weld-core-impl</artifactId>
-                      <version>5.1.0.Final</version>
+                      <version>${weld.version}</version>
                     </dependency>
                     <dependency>
                       <groupId>org.jboss.weld.environment</groupId>
                       <artifactId>weld-environment-common</artifactId>
-                      <version>5.1.0.Final</version>
+                      <version>${weld.version}</version>
                     </dependency>
                     <dependency>
                       <groupId>org.jboss.weld</groupId>
                       <artifactId>weld-lite-extension-translator</artifactId>
-                      <version>5.1.0.Final</version>
+                      <version>${weld.version}</version>
                     </dependency>
                     <dependency>
                       <groupId>org.jboss.logging</groupId>
@@ -428,17 +413,17 @@
                     <dependency>
                       <groupId>org.jboss.weld</groupId>
                       <artifactId>weld-core-impl</artifactId>
-                      <version>5.1.0.Final</version>
+                      <version>${weld.version}</version>
                     </dependency>
                     <dependency>
                       <groupId>org.jboss.weld.environment</groupId>
                       <artifactId>weld-environment-common</artifactId>
-                      <version>5.1.0.Final</version>
+                      <version>${weld.version}</version>
                     </dependency>
                     <dependency>
                       <groupId>org.jboss.weld</groupId>
                       <artifactId>weld-lite-extension-translator</artifactId>
-                      <version>5.1.0.Final</version>
+                      <version>${weld.version}</version>
                     </dependency>
                     <dependency>
                       <groupId>org.jboss.logging</groupId>
@@ -531,18 +516,13 @@
                     <dependency>
                       <groupId>org.jboss.weld</groupId>
                       <artifactId>weld-core-impl</artifactId>
-                      <version>5.1.0.Final</version>
+                      <version>${weld.version}</version>
                     </dependency>
                     <dependency>
                       <groupId>org.jboss.weld.environment</groupId>
                       <artifactId>weld-environment-common</artifactId>
-                      <version>5.1.0.Final</version>
+                      <version>${weld.version}</version>
                     </dependency>
-                    <!--<dependency>
-                      <groupId>org.jboss.weld</groupId>
-                      <artifactId>weld-lite-extension-translator</artifactId>
-                      <version>5.1.0.Final</version>
-                    </dependency>-->
                     <dependency>
                       <groupId>org.jboss.logging</groupId>
                       <artifactId>jboss-logging</artifactId>
@@ -599,8 +579,7 @@
                   requires transitive jakarta.cdi;
                   requires transitive weld.core.impl;
                   requires org.jboss.logging;
-                  requires transitive org.slf4j.simple;
-                  requires org.slf4j;
+                  requires java.logging;
                   exports org.cdi.sandbox.module;
                   }
                 </moduleInfoSource>

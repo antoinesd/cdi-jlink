@@ -576,11 +576,7 @@
                 <mainClass>org.cdi.sandbox.module.MyApplication</mainClass>
 
                 <moduleInfoSource>open module cdi.module {
-                  requires transitive jakarta.cdi;
-                  requires transitive weld.core.impl;
-                  requires org.jboss.logging;
-                  requires java.logging;
-                  exports org.cdi.sandbox.module;
+                  requires transitive weld.se.core;
                   }
                 </moduleInfoSource>
               </module>
@@ -600,11 +596,14 @@
                 <module>cdi.module</module>
                 <module>weld.se.core</module>
               </modules>
-              <jarInclusionPolicy>APP_WITH_DEPENDENCIES</jarInclusionPolicy>
+              <jarInclusionPolicy>NONE</jarInclusionPolicy>
+              <noHeaderFiles>true</noHeaderFiles>
+              <noManPages>true</noManPages>
               <launcher>
                 <name>myApp</name>
                 <module>cdi.module</module>
               </launcher>
+              <compression>2</compression>
               <outputDirectory>${project.build.directory}/jlink-image</outputDirectory>
             </configuration>
           </execution>

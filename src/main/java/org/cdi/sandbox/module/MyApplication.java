@@ -12,5 +12,6 @@ public class MyApplication {
         var container = initializer.initialize();
         var myBean = container.select(org.cdi.sandbox.module.SimpleBean.class).get();
         myBean.SimpleCall();
+        container.close();
     }
 }

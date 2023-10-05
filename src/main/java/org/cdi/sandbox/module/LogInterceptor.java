@@ -20,7 +20,7 @@ public class LogInterceptor {
 
   @AroundInvoke
   Object timeMethod(InvocationContext context) throws Exception {
-    logger.info("*** before calling method " + context.getMethod().getName() + " ***");
+    logger.info("*** before calling method " + context.getMethod().getName() + " ***\n");
     try {
       return context.proceed();
     } catch (Exception e) {

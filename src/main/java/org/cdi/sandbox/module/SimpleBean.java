@@ -9,9 +9,9 @@ public class SimpleBean {
 
     @Logged
     public void SimpleCall() {
-        System.out.println("***************\n" +
-                           "*   I'm here  *\n" +
-                           "***************\n");
+        System.out.println("******************************************************************\n" +
+                           "*   Hello World from a Simple Bean in a CDI JPMS compliant App   *\n" +
+                           "******************************************************************\n");
     }
 
 

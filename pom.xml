@@ -10,6 +10,8 @@
 
   <properties>
     <weld.version>5.1.1.SP2</weld.version>
+    <jakartaee-web-api.version>10.0.0</jakartaee-web-api.version>
+    <jboss-logging.version>3.5.3.Final</jboss-logging.version>
   </properties>
 
   <dependencies>
@@ -21,22 +23,12 @@
     <dependency>
       <groupId>jakarta.platform</groupId>
       <artifactId>jakarta.jakartaee-web-api</artifactId>
-      <version>10.0.0</version>
+      <version>${jakartaee-web-api.version}</version>
     </dependency>
     <dependency>
       <groupId>org.jboss.logging</groupId>
       <artifactId>jboss-logging</artifactId>
-      <version>3.5.3.Final</version>
-    </dependency>
-    <dependency>
-      <groupId>org.apache.bcel</groupId>
-      <artifactId>bcel</artifactId>
-      <version>6.7.0</version>
-    </dependency>
-    <dependency>
-      <groupId>io.smallrye</groupId>
-      <artifactId>jandex</artifactId>
-      <version>3.0.5</version>
+      <version>${jboss-logging.version}</version>
     </dependency>
   </dependencies>
 
@@ -70,7 +62,7 @@
             <configuration>
               <outputDirectory>${project.build.directory}/modules</outputDirectory>
               <excludeArtifactIds>jakarta.jakartaee-web-api</excludeArtifactIds>
-              <includeGroupIds>org.apache.bcel,jakarta,org.jboss.logging,io.smallrye
+              <includeGroupIds>jakarta,org.jboss.logging
               </includeGroupIds>
               <overWriteIfNewer>true</overWriteIfNewer>
             </configuration>
@@ -94,6 +86,7 @@
               <jdepsExtraArgs>
                 <arg>--module-path</arg>
                 <arg>${project.build.directory}/modules</arg>
+                <arg>--ignore-missing-deps</arg>
               </jdepsExtraArgs>
               <modules>
 
@@ -124,7 +117,6 @@
                   </artifact>
                   <moduleInfo>
                     <name>weld.spi</name>
-
                   </moduleInfo>
                 </module>
 
@@ -137,9 +129,7 @@
                     <name>weld.core.impl</name>
                     <requires>
                       !jboss.logging.annotations;
-                      !org.apache.bcel;
                     </requires>
-                    <open>true</open>
                   </moduleInfo>
                 </module>
 
@@ -152,7 +142,6 @@
                     <name>weld.environment.common</name>
                     <requires>
                       !jboss.logging.annotations;
-                      !org.jboss.jandex;
                     </requires>
                   </moduleInfo>
                 </module>
@@ -164,7 +153,6 @@
                   </artifact>
                   <moduleInfo>
                     <name>weld.lite.extension.translator</name>
-                    <open>true</open>
                     <requires>
                       !jboss.logging.annotations;
                     </requires>

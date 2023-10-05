@@ -10,5 +10,5 @@ import static java.lang.annotation.RetentionPolicy.RUNTIME;
 
 @InterceptorBinding
 @Retention(RUNTIME)
-public @interface Log {
+public @interface Logged {
 }

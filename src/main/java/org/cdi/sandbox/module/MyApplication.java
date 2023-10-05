@@ -7,7 +7,7 @@ public class MyApplication {
 
     public static void main(String[] args) {
         var initializer = SeContainerInitializer.newInstance();
-        initializer.addBeanClasses(SimpleBean.class,LogInterceptor.class);
+        initializer.addBeanClasses(SimpleBean.class,LogInterceptor.class,LoggerProducer.class);
 
         var container = initializer.initialize();
         var myBean = container.select(org.cdi.sandbox.module.SimpleBean.class).get();

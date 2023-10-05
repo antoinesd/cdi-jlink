@@ -7,7 +7,7 @@ import jakarta.enterprise.context.ApplicationScoped;
 public class SimpleBean {
 
 
-    @Log
+    @Logged
     public void SimpleCall() {
         System.out.println("***************\n" +
                            "*   I'm here  *\n" +

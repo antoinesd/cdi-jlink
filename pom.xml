@@ -9,9 +9,10 @@
   <version>1.0-SNAPSHOT</version>
 
   <properties>
-    <weld.version>5.1.1.SP2</weld.version>
+    <weld.version>5.1.2.Final</weld.version>
     <jakartaee-web-api.version>10.0.0</jakartaee-web-api.version>
     <jboss-logging.version>3.5.3.Final</jboss-logging.version>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
   </properties>
 
   <dependencies>
@@ -37,10 +38,9 @@
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-compiler-plugin</artifactId>
-        <version>3.11.0</version>
+        <version>3.12.1</version>
         <configuration>
-          <source>11</source>
-          <target>11</target>
+          <release>11</release>
           <compilerArgs>
             <compilerArg>--module-path</compilerArg>
             <compilerArg>${project.build.directory}/modules</compilerArg>
@@ -51,7 +51,7 @@
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-dependency-plugin</artifactId>
-        <version>3.5.0</version>
+        <version>3.6.1</version>
         <executions>
           <execution>
             <id>copy-jakarta-modules</id>
@@ -73,7 +73,7 @@
       <plugin>
         <groupId>org.moditect</groupId>
         <artifactId>moditect-maven-plugin</artifactId>
-        <version>1.0.0.Final</version>
+        <version>1.2.0.Final</version>
         <executions>
           <execution>
             <id>add-module-info-to-dependencies</id>
@@ -211,7 +211,7 @@
                 <name>myApp</name>
                 <module>cdi.module</module>
               </launcher>
-              <compression>2</compression>
+              <compression>zip-9</compression>
               <outputDirectory>${project.build.directory}/jlink-image</outputDirectory>
             </configuration>
           </execution>
